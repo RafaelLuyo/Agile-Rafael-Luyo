@@ -1,0 +1,90 @@
+:root {
+  --primary: #2563eb;
+  --bg: #f3f4f6;
+  --white: #ffffff;
+  --text: #1f2937;
+  --gray: #9ca3af;
+  
+  /* Colores Médicos / Riesgo */
+  --c-blue: #3b82f6; /* Bajo peso */
+  --c-green: #22c55e; /* Normal */
+  --c-yellow: #eab308; /* Precaución */
+  --c-orange: #f97316; /* Alerta */
+  --c-red: #ef4444; /* Peligro */
+  --c-darkred: #991b1b; /* Emergencia */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+
+body { background-color: var(--bg); color: var(--text); padding: 20px; display: flex; justify-content: center; }
+
+.container { width: 100%; max-width: 500px; background: var(--white); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; }
+
+header { background: var(--primary); color: white; padding: 20px; text-align: center; }
+header h1 { font-size: 1.5rem; margin-bottom: 5px; }
+.subtitle { font-size: 0.85rem; opacity: 0.9; }
+
+/* Grid de Navegación */
+.nav-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 20px; background: #ebf3ff; }
+/* Ajuste para que los botones de la última fila se centren si sobran */
+.nav-grid button:last-child:nth-child(3n-1) { grid-column-end: -2; } 
+
+.card-btn {
+  background: var(--white); border: none; padding: 15px 5px; border-radius: 12px;
+  cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); color: var(--text); font-size: 0.8rem; font-weight: 600;
+}
+.card-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2); color: var(--primary); }
+.card-btn .icon { font-size: 1.5rem; }
+
+/* Secciones de Calculadora */
+main { padding: 20px; min-height: 300px; }
+.calc-section { animation: fadeIn 0.4s ease; }
+.hidden { display: none; }
+
+h2 { color: var(--primary); margin-bottom: 20px; font-size: 1.2rem; border-bottom: 2px solid #ebf3ff; padding-bottom: 10px; }
+
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; }
+.input-group input {
+  width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px;
+  font-size: 1rem; transition: border-color 0.2s;
+}
+.input-group input:focus { border-color: var(--primary); outline: none; }
+
+/* Botones de Acción */
+.action-btn {
+  width: 100%; background: var(--primary); color: white; border: none;
+  padding: 14px; border-radius: 8px; font-size: 1rem; font-weight: bold;
+  cursor: pointer; margin-top: 10px;
+}
+.action-btn:active { background: #1d4ed8; }
+
+.controls { margin-top: 20px; text-align: center; }
+.clear-btn { background: none; border: none; color: var(--gray); text-decoration: underline; cursor: pointer; }
+
+/* Resultados */
+.result-box {
+  margin-top: 25px; padding: 20px; border-radius: 12px; text-align: center;
+  background: #f8fafc; border: 1px solid #e2e8f0;
+}
+.result-box h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; opacity: 0.8; }
+#result-text { font-size: 1.8rem; font-weight: 800; margin-bottom: 5px; }
+
+/* Clases de estado para el resultado */
+.state-blue { background-color: #eff6ff; color: var(--c-blue); border-color: var(--c-blue); }
+.state-green { background-color: #f0fdf4; color: var(--c-green); border-color: var(--c-green); }
+.state-yellow { background-color: #fefce8; color: var(--c-yellow); border-color: var(--c-yellow); }
+.state-orange { background-color: #fff7ed; color: var(--c-orange); border-color: var(--c-orange); }
+.state-red { background-color: #fef2f2; color: var(--c-red); border-color: var(--c-red); }
+.state-darkred { background-color: #450a0a; color: white; border-color: #450a0a; }
+
+footer { text-align: center; font-size: 0.75rem; color: var(--gray); margin-top: 20px; padding-bottom: 10px; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Mobile optimization */
+@media (max-width: 400px) {
+  .nav-grid { grid-template-columns: repeat(2, 1fr); }
+}

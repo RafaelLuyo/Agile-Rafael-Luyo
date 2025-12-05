@@ -1,0 +1,112 @@
+<div class="container">
+  <header>
+    <h1>🏥 Calculadora Médica</h1>
+    <p class="subtitle">Herramienta multi-uso para estudiantes y pacientes</p>
+  </header>
+
+  <!-- Navegación (Grid de Botones) -->
+  <nav class="nav-grid">
+    <button class="card-btn" onclick="showCalc('imc')">
+      <span class="icon">⚖️</span>
+      <span>IMC</span>
+    </button>
+    <button class="card-btn" onclick="showCalc('presion')">
+      <span class="icon">❤️</span>
+      <span>Presión Arterial</span>
+    </button>
+    <button class="card-btn" onclick="showCalc('agua')">
+      <span class="icon">💧</span>
+      <span>Hidratación</span>
+    </button>
+    <button class="card-btn" onclick="showCalc('dosis')">
+      <span class="icon">💊</span>
+      <span>Dosis Pediátrica</span>
+    </button>
+    <button class="card-btn" onclick="showCalc('edad')">
+      <span class="icon">👶</span>
+      <span>Edad Pediátrica</span>
+    </button>
+  </nav>
+
+  <!-- Área de Calculadoras -->
+  <main id="calculator-area">
+    
+    <!-- 1. IMC -->
+    <section id="imc" class="calc-section hidden">
+      <h2>Índice de Masa Corporal</h2>
+      <div class="input-group">
+        <label>Peso (kg)</label>
+        <input type="number" id="imc-peso" placeholder="Ej: 70">
+      </div>
+      <div class="input-group">
+        <label>Altura (cm)</label>
+        <input type="number" id="imc-altura" placeholder="Ej: 175">
+      </div>
+      <button class="action-btn" onclick="calcularIMC()">Calcular IMC</button>
+    </section>
+
+    <!-- 2. Presión Arterial -->
+    <section id="presion" class="calc-section hidden">
+      <h2>Presión Arterial</h2>
+      <div class="input-group">
+        <label>Sistólica (mmHg)</label>
+        <input type="number" id="pa-sis" placeholder="Ej: 120">
+      </div>
+      <div class="input-group">
+        <label>Diastólica (mmHg)</label>
+        <input type="number" id="pa-dia" placeholder="Ej: 80">
+      </div>
+      <button class="action-btn" onclick="calcularPresion()">Analizar Presión</button>
+    </section>
+
+    <!-- 3. Hidratación -->
+    <section id="agua" class="calc-section hidden">
+      <h2>Hidratación Diaria</h2>
+      <div class="input-group">
+        <label>Peso (kg)</label>
+        <input type="number" id="agua-peso" placeholder="Ej: 65">
+      </div>
+      <button class="action-btn" onclick="calcularAgua()">Calcular Agua</button>
+    </section>
+
+    <!-- 4. Dosis -->
+    <section id="dosis" class="calc-section hidden">
+      <h2>Dosis Medicamento</h2>
+      <div class="input-group">
+        <label>Peso Paciente (kg)</label>
+        <input type="number" id="dosis-peso" placeholder="Ej: 20">
+      </div>
+      <div class="input-group">
+        <label>Dosis indicada (mg/kg)</label>
+        <input type="number" id="dosis-mg" placeholder="Ej: 10">
+      </div>
+      <button class="action-btn" onclick="calcularDosis()">Calcular Dosis Total</button>
+    </section>
+
+    <!-- 5. Edad -->
+    <section id="edad" class="calc-section hidden">
+      <h2>Edad Pediátrica</h2>
+      <div class="input-group">
+        <label>Fecha de Nacimiento</label>
+        <input type="date" id="edad-fecha">
+      </div>
+      <button class="action-btn" onclick="calcularEdad()">Calcular Edad Exacta</button>
+    </section>
+
+    <!-- Área de Resultados -->
+    <div id="result-area" class="result-box hidden">
+      <h3 id="result-title">Resultado</h3>
+      <p id="result-text">--</p>
+      <small id="result-detail"></small>
+    </div>
+
+    <div class="controls">
+      <button class="clear-btn" onclick="limpiarTodo()">Limpiar Formulario</button>
+    </div>
+
+  </main>
+
+  <footer>
+    ⚠️ Esta herramienta es informativa. Consulte a su médico.
+  </footer>
+</div>
