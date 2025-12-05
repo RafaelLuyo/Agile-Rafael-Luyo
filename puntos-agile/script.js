@@ -115,7 +115,7 @@ function calcularDosis() {
   displayResult(`${total.toFixed(1)} mg`, "Dosis total calculada", "state-green");
 }
 
-// 5. EDAD PEDIÁTRICA
+// 5. EDAD PEDIÁTRICA 
 function calcularEdad() {
   const fechaStr = document.getElementById('edad-fecha').value;
   if (!fechaStr) return alert("Seleccione una fecha");
